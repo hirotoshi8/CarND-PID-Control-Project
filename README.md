@@ -2,7 +2,23 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+My final gain value is below.
+- Kp: 0.51
+- Ki: 0.056
+- Kd: 62.094 
 
+This is my strategy.
+1. I tuned the gain manyually as the initlal value for Twiddable argorithm.
+2. Twiddale argorithm did fine tuning.
+
+I think Twiddable is good Argotrithm but it has some problem.
+- This argorithm has potentially local minimum problem. Its outut depends on the initlal value.
+
+- Step size is unknow. For searching the best value of gain with twiddable, we have to know the correct step size.
+
+This is why I manually seached the appropriate initial value and step size and then used twiddable argorithm for fine tuning.
+
+---
 ## Dependencies
 
 * cmake >= 3.5
