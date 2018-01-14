@@ -19,6 +19,20 @@ I think Twiddable is good Argotrithm but it has some problem.
 This is why I manually seached the appropriate initial value and step size and then used twiddable argorithm for fine tuning.
 
 ---
+## Discussion of the Control gains
+1. Kp: P-Gain. This is the basic control gain, which depends on the error agaist the target value. There are some cautions below.
+- If we use only P-gain, the residual error is remained against the target value. This is why the controller needs the another gain for deleting the residual error.(I-Gain)
+- There is the cahnges of target value such as the curves in the project test course and the controller must adapt to these changes. With only P-gain, the controller become delayed to the changes. This is why it's necessary for the controller to have the anoather gain against the target changes.(D-Gain)
+- If P-gain is much bigger than the appropriate value, its output become diverging. So, we have to be careful when we tune the control the P-gain manually.
+
+2. Ki: I-Gain. This is the control gain against the integral error. This is becase this gain depends on the intagral error, it can delete the residual error.
+- But, If it become too large, when the direction of target value is changes, the controller has the large delay for following the changes.
+
+3. Kd: D-Gain: This is the control gain against the changes of the error. This is because this gain depends on the changes of error, when the target value is changed, the cotorrller can follow the target value immediately.
+- But, If it become too large, when there is some noise in the measurements in system, it kneely reacts the noise and maybe the controller is unstable due to the D-gain.
+
+
+---
 ## Dependencies
 
 * cmake >= 3.5
