@@ -65,7 +65,6 @@ public:
 
 private:
 	int twiddle_steps;
-	int gain_steps;
 	int max_twiddle_steps;
 	double eps_;
 	//double delta_Kp;
